@@ -1,0 +1,23 @@
+class GfG
+{
+    Node deleteNode(Node head, int x)
+    {
+	// Your code here
+	
+	if(head == null){
+	    return head;
+	}
+	    if(x == 1){
+	        head = head.next;
+	        return head;
+	    }
+	    Node temp = head;
+	    while(x > 2){
+	        temp = temp.next;
+	        --x;
+	    }
+	    temp.next = temp.next.next;
+	    return head;
+	
+    }
+}
