@@ -1,0 +1,27 @@
+class GfG
+{
+    // Function to remove duplicates from the given linked list
+    public Node removeDuplicates(Node head) 
+    {
+        if(head == null){
+            return head;
+        }
+        Set<Integer> set = new HashSet<>();
+        set.add(head.data);
+        Node temp = head;
+        while(temp != null && temp.next != null){
+            if(set.contains(temp.next.data)){
+                temp.next = temp.next.next;
+            }
+            else{
+                
+                temp = temp.next;
+                set.add(temp.data);
+            }
+        }
+        return head;
+        
+        
+         // Your code here
+    }
+}
