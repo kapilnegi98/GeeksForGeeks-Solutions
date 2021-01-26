@@ -1,0 +1,23 @@
+class Solution
+{
+    static int countNodesinLoop(Node head)
+    {
+        //Add your code here.
+        Node slow = head, fast = head.next;
+        
+        while(slow != fast && fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if(fast == null || fast.next == null){
+            return 0;
+        }
+        int count = 1;
+        slow = slow.next;
+        while(slow != fast){
+            slow= slow.next;
+            count++;
+        }
+        return count;
+    }
+}
